@@ -1,0 +1,47 @@
+@import 'bootstrap';
+
+
+.header{
+    height:40vh;
+    background-color:black;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+    background-size: cover;
+    background-position: center;
+}
+
+h1,h2{
+    color:yellow;
+}
+
+.nav-link {
+    color: yellow !important;
+}
+
+.nav-link:hover {
+    color: orange !important;
+}
+
+
+body {
+    background-color: black;
+    color: white; /* così il testo si vede */
+}
+
+
+.trainee-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.trainee-card:hover {
+    transform: translateY(-8px);
+}
+
+.trainee-card img {
+    height: 200px;
+    object-fit: cover;
+}
+

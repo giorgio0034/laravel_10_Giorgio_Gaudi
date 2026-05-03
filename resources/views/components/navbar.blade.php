@@ -12,9 +12,49 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('trainee.list')}}">i Nostri Iscritti</a>
         </li>
-        <li class="nav-item">
+
+@auth
+{{-- Sarà visibile solo se l'utente è autenticato --}}
+    <li class="nav-item">
           <a class="nav-link" href="{{route('trainee.subscribe')}}">Per iscriversi</a>
         </li>
+@endauth
+
+@guest
+{{-- Sarà visibile solo se l'utente non è autenticato --}}
+@endguest
+
+
+
+
+{{-- @dd(Auth::user()->email) --}}
+
+{{-- Se l'utente non è autenticato --}}
+        {{-- @if(!Auth::user()) --}}
+        @guest
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('register')}}">Registrati</a>
+        </li>
+
+           <li class="nav-item">
+          <a class="nav-link" href="{{route('login')}}">Accedi</a>
+        </li>
+        @endguest
+
+        {{-- @if(Auth::user()) --}}
+        @auth
+             <li class="nav-item">
+          <a class="nav-link" href="#">Benvenut* Mario{{ Auth::user()->name }}</a>
+        </li>
+        <li class="nav-item">
+          <form
+          action="{{route('logout')}}"
+          method="POST">
+          @csrf
+          <button class="nav-link" type="submit">Logout</button>
+        </form>
+        </li>
+        @endauth
     </div>
   </div>
 </nav>

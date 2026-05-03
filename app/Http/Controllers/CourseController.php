@@ -9,7 +9,19 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-   public function signup(TraineeRequest $request){//Modifico il tipo di classe Request che passo come parametro
+
+//! DEPRECATED
+// public function __construct()
+   //{
+   // $this->middleware('auth');
+   //}
+
+
+
+
+
+
+    public function signup(TraineeRequest $request){//Modifico il tipo di classe Request che passo come parametro
 
 
 

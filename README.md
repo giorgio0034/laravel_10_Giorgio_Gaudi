@@ -73,3 +73,26 @@ Utilizziamo la rotta POST fornita da Fortify per creare un form che mi permetta 
 -Andiamo a definire nel FortifyServiceProvider la logica per poter visualizzare il form di accesso
 Copiamo la logica di questo link => https://laravel.com/docs/12.x/fortify#authentication
 Creiamo la cartella auth con dentro il file login.blade.php
+
+
+# middleware
+I middleware sono delle logiche che io scelgo di interporre a determinate richieste
+'auth' è l'alias del middleware che controlla se l'utente è autenticato
+
+
+# CRUD
+
+C=> Create
+R=> Read
+U=> Update
+D=> Delete
+
+Sono le 4 operazioni di base che si possono effettuare in un database
+
+-php artisan make:model NomeModello -mcr
+m => migrazione
+c => controller
+r => resources del controller
+
+Scriviamo la migrazione con la struttura della nostra tabella
+Andiamo nella nostra tabella a definire i fillable

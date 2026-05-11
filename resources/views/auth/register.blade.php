@@ -9,6 +9,9 @@
                     </div>
                 </div>
             </div>
+</header>
+
+ <x-display-errors/>
 
 
 
@@ -18,7 +21,6 @@
 
 
 
-        </header>
 
         <div class="container">
             <div class="row mt-5 justify-content-center ">

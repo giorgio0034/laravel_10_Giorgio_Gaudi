@@ -10,15 +10,15 @@
             </div>
         </div>
 
+ </header>
 
 
 
 
+<x-display-message/>
 
 
-
-
-    </header>
+  <x-display-errors/>
 
 
 

@@ -12,11 +12,16 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('trainee.list')}}">i Nostri Iscritti</a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('article.index')}}">i miei articoli</a>
+        </li>
 @auth
 {{-- Sarà visibile solo se l'utente è autenticato --}}
     <li class="nav-item">
           <a class="nav-link" href="{{route('trainee.subscribe')}}">Per iscriversi</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('article.create')}}">Crea Articolo</a>
         </li>
 @endauth
 

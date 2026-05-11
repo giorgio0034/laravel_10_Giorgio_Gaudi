@@ -83,7 +83,7 @@ if($request->file('img')){
 
    public function list(){
 
-   $trainees= Trainee::all();
+   $trainees= Trainee::all(); //Query db sarebbe SELECT * FROM trainees
 
    return view('trainee.list',['trainees'=>$trainees]);
    }

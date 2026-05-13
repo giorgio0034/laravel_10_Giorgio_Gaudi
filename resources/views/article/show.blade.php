@@ -25,19 +25,9 @@
 
 
 <div class="container">
-    <div class="row g-4 my-5">
 
-        <div class="col-12 col-md-4">
-            <div class="card trainee-card gy-5" style="width: 18rem;" >
-
-                <img src="{{Storage::url($article->img)}}" class= "rounded-circle profile-img">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $article->title }}</h5>
-                    <p class="card-subtitle">{{ $article->subtitle }}</p>
-                    <p class="card-text">{{ $article->body}}</p>
-                    <a href="{{ route('article.show', compact('article')) }}" class="btn btn-primary"> Dettaglio Articolo </a>
-                </div>
-            </div>
+            <h5  class="text-center"> Titolo dell'articolo</h5>
+            <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error modi perspiciatis libero ex corrupti cum tempora incidunt neque natus ab dolor quae unde dolores deleniti sunt, nostrum, deserunt eos facilis</p>
 
 
         </div>

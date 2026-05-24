@@ -96,3 +96,22 @@ r => resources del controller
 
 Scriviamo la migrazione con la struttura della nostra tabella
 Andiamo nella nostra tabella a definire i fillable
+
+
+# Update
+
+-Creare un form precompilato con i dati dell'articolo che vogliamo aggiornare
+-Creare una funzione che mi aggiorni l'articolo da modificare
+
+# Delete
+
+-Creare una funzione che elimina un articolo
+
+
+# Relazione One to Many
+
+Aggiungere la foreign key all'interno della tabella child della relazione One to Many
+- La tabella child è quella che definisce la parte "Many" della relazione:
+' php artisan make:migration add_user_id_column_to_trainees_table'
+Nella migrazione creo prima la colonna
+Poi rendo quella colonna una FK

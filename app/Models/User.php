@@ -29,4 +29,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+        public function trainees()
+    {
+        return $this->hasMany(Trainee::class);//Questo metodo ci indica che quando richiamiamo il metodo trainees ci ritornano tutti
+        //i prodotti collegati all'utente
+    }
+
+
+
 }

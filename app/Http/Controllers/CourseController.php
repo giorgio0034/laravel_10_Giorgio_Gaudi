@@ -6,9 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TraineeRequest;
 use App\Models\Trainee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
+
+
+
 
 //! DEPRECATED
 // public function __construct()
@@ -24,7 +28,7 @@ class CourseController extends Controller
     public function signup(TraineeRequest $request){//Modifico il tipo di classe Request che passo come parametro
 
 
-
+//dd(Auth::user()->id);
     $name=$request->name;
     $surname=$request->surname;
     $age=$request->age;
@@ -68,7 +72,8 @@ if($request->file('img')){
         'surname'=>$surname,
         'age'=>$age,
         'email'=>$email,
-        'img'=>$img
+        'img'=>$img,
+        'user_id'=> Auth::user()->id
     ]);
 
 

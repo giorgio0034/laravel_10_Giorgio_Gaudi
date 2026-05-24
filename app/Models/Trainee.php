@@ -14,9 +14,13 @@ class Trainee extends Model
         'surname',
         'age',
         'email',
-        'img'
+        'img',
+        'user_id'
     ];
 
-
+    public function user()
+    {
+        return $this->belongsTo(User::class); //Questo metodo ci indica che quando richiamo il metodo user ci ritorna l'utente collegato al prodotto
+    }
 
 }

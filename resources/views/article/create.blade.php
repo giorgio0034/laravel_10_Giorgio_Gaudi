@@ -17,6 +17,23 @@
         </div>
         @endif
 
+
+        <header class="header d-flex align-items-center">
+
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-12 col-md-6">
+                        <h1 class="text-center">Crea un nuovo articolo</h1>
+                    </div>
+                </div>
+            </div>
+ </header>
+
+
+
+
+
+
         <!-- Create Post Form -->
 
 
@@ -40,7 +57,7 @@
                          </div>
                         <div class="mb-3">
                         <label for="body" class="form-label">Corpo dell'articolo</label>
-                        <textarea name="body" type="text" value="{{old('subtitle')}}"class="form-control" id="body"
+                        <textarea name="body"  value="{{old('body')}}" class="form-control" id="body"
                         aria-describedby="emailHelp"></textarea>
                          </div>
                         <div class="mb-3">

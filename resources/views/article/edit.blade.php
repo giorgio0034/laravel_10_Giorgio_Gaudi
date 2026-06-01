@@ -2,37 +2,15 @@
 
 
 
-        @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-        @endif
-
-        {{-- Snipped codice per creare errori di validazione --}}
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-
-        <!-- Create Post Form -->
+<x-display-message/>
 
 
-            <header class="header d-flex align-items-center">
+  <x-display-errors/>
 
-        <div class="container">
-            <div class="row justify-content-center align-items-center mt-5">
-                <div class="col-12 col-md-6">
-                    <h1 class="text-center">Modifica Articolo: {{ $article->title }}</h1>
-                </div>
-            </div>
-        </div>
 
- </header>
+
+
+ <x-masthead title="Modifica Articolo: {{ $article->title }}"></x-masthead>
 
 
 
@@ -61,6 +39,16 @@
                         aria-describedby="emailHelp">{{$article->body}}</textarea>
                          </div>
                         <div class="mb-3">
+                        @foreach($tags as $tag)
+                         <div class="form-check">
+                            <input class="form-check-input" name="tags[]" type="checkbox" value="{{$tag->id }}" id="checkDefault" @if ($article->tags->contains($tag)) checked @endif>
+                            <label class="form-check-label" for="checkDefault">
+                                {{ $tag->name }}
+                            </label>
+                        </div>
+                        @endforeach
+
+
                         <span class="form-label">Immagine attuale </span>
                         <img src="{{Storage::url($article->img)  }}" alt="{{ $article->title }}" width="400" height="200" srcset="">
 

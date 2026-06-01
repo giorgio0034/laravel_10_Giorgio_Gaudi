@@ -115,3 +115,15 @@ Aggiungere la foreign key all'interno della tabella child della relazione One to
 ' php artisan make:migration add_user_id_column_to_trainees_table'
 Nella migrazione creo prima la colonna
 Poi rendo quella colonna una FK
+Istruire i nostri modelli relazionali che possono interagire tra di loro 
+
+
+# Relazione Many to Many
+
+Ci creiamo due modelli da mettere in relazione N-N
+Creare la migrazione per i modelli
+Creare la migrazione per la tabella pivot
+ 'php artisan make:migration create_article_tag_table'
+ la tabella pivot si crea mettendo i nomi dei modelli al singolare minuscolo in ordine alfabetico
+ Inserisco nella migrazioni le due foreign key
+Istruire i modelli alla Relazione Many to Many

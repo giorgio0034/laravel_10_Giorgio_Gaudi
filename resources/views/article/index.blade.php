@@ -1,17 +1,6 @@
 <x-layout>
 
-    <header class="header d-flex align-items-center">
-
-        <div class="container">
-            <div class="row justify-content-center align-items-center mt-5">
-                <div class="col-12 col-md-6">
-                    <h1 class="text-center">I miei articoli</h1>
-                </div>
-            </div>
-        </div>
-
- </header>
-
+ <x-masthead title="I miei Articoli"></x-masthead>
 
 
 
@@ -35,7 +24,18 @@
                     <h5 class="card-title">{{ $article->title }}</h5>
                     <p class="card-subtitle">{{ $article->subtitle }}</p>
                     <p class="card-text">{{ $article->body}}</p>
+                    @if(($article->tags->isNotEmpty()))
+                    <div class=mb-3>
+                        @foreach($article->tags as $tag)
+                    <span class="badge text-bg-primary">#{{ $tag->name }}</span>
+                    @endforeach
+                    </div>
+                     @endif
+
+
                     <a href="{{ route('article.show',compact('article')) }}" class="btn btn-primary"> Dettaglio Articolo </a>
+
+                    @auth
                     <a href="{{ route('article.edit',compact('article')) }}" class="btn btn-warning"> Modifica  </a>
 
 
@@ -45,7 +45,7 @@
                      @method('DELETE')
                      @csrf
                      <button class="btn btn-danger" type="submit">Elimina  </button>
-
+                    @endauth
 
                 </div>
             </div>

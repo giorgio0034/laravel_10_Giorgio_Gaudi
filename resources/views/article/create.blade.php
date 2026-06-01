@@ -1,34 +1,14 @@
     <x-layout>
 
-        @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-        @endif
-
-        {{-- Snipped codice per creare errori di validazione --}}
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
 
 
-        <header class="header d-flex align-items-center">
 
-            <div class="container">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-12 col-md-6">
-                        <h1 class="text-center">Crea un nuovo articolo</h1>
-                    </div>
-                </div>
-            </div>
- </header>
 
+
+ <x-masthead title="Crea un nuovo articolo"></x-masthead>
+
+ <x-display-message/>
+ <x-display-errors/>
 
 
 
@@ -60,6 +40,16 @@
                         <textarea name="body"  value="{{old('body')}}" class="form-control" id="body"
                         aria-describedby="emailHelp"></textarea>
                          </div>
+
+                         @foreach($tags as $tag)
+                         <div class="form-check">
+                            <input class="form-check-input" name="tags[]" type="checkbox" value="{{$tag->id }}" id="checkDefault">
+                            <label class="form-check-label" for="checkDefault">
+                                {{ $tag->name }}
+                            </label>
+                        </div>
+                        @endforeach
+
                         <div class="mb-3">
                         <label for="img" class="form-label">inserisci immagine </label>
                         <input name="img" type="file" class="form-control" id="img"

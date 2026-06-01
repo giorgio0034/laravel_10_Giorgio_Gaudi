@@ -1,17 +1,7 @@
 <x-layout>
 
-    <header class="header d-flex align-items-center">
 
-        <div class="container">
-            <div class="row justify-content-center align-items-center mt-5">
-                <div class="col-12 col-md-6">
-                    <h1 class="text-center">Articolo con id {{ $article->id }}</h1>
-                </div>
-            </div>
-        </div>
-
- </header>
-
+ <x-masthead title="Articolo con id {{ $article->id }}"></x-masthead>
 
 
 

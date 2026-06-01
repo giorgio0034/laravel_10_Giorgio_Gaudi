@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
+
 
 class ArticleController extends Controller
 {
@@ -24,7 +28,10 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view( 'article.create');
+        $tags = Tag::all();//recupero tutti i tag della tabella tags(SELECT * FROM tags)
+
+
+        return view( 'article.create',compact('tags'));
     }
 
     /**
@@ -32,7 +39,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-
+  //  dd($request->all());
 
 
 //? Metodo 1
@@ -93,8 +100,11 @@ else{
         //$body=$request->body;
        // $img = $request->file('img')->store('img', 'public');
 
-
-
+        $article
+        ->tags()// Qui sto utilizzando il modello Many to many che ho definito nel modello
+                //Compio questa operazione quando devo SCRIVERE nel DB
+        ->attach($request->tags);//Con il metodo attach gli passo gli ID degli oggetti che voglio mettere in relazione
+                                 //al modello di partenza
         return redirect()->back()->with('message','articolo inserito con successo');
 
     }
@@ -112,7 +122,8 @@ else{
      */
     public function edit(Article $article)
     {
-        return view('article.edit',compact('article'));
+        $tags = Tag::all();
+        return view('article.edit',compact('article','tags'));
     }
 
     /**
@@ -123,7 +134,13 @@ else{
 
     //dd($request->all(),$article);
     if($request->file('img')){
-        $img = $request->file('img')->store('img','public');
+
+
+        Storage::disk('public')->delete($article->img);//eliminare la vecchia immagine
+        $img = $request->file('img')->store('img','public');//la funzione store parte dal percorso storage/app
+
+
+
     }
     else{
         $img=$article->img;
@@ -139,6 +156,7 @@ else{
 
         ]);
 
+        $article->tags()->sync($request->tags);//Sincronizza l'attuale relazione aggiornata tra i tag selezionati e quelli deselezionati
 
 
         return redirect(route('article.index'))->with('message','articolo modificato');
@@ -150,6 +168,9 @@ else{
      */
     public function destroy(Article $article)
     {
+
+        $article->tags()->detach();//Eliminare ogni vincolo di relazione tra i due modelli
+
         //metodo per eliminare un articolo
         $article->delete();
 

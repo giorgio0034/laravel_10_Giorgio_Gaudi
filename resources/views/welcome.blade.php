@@ -1,14 +1,8 @@
 <x-layout>
 
-    <header class="header d-flex align-items-center">
+<x-masthead title="Homepage"></x-masthead>
 
-        <div class="container">
-            <div class="row justify-content-center align-items-center mt-5">
-                <div class="col-12 col-md-6">
-                    <h1 class="text-center">Benvenuto nel Corso</h1>
-                </div>
-            </div>
-        </div>
+<x-display-message/>
 
 
 
@@ -16,9 +10,6 @@
 
 
 
-
-
-    </header>
 
     <main class="container">
         <div class="row justify-content-center align-items-center mt-5">

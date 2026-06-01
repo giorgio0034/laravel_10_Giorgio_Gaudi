@@ -1,13 +1,15 @@
 @import 'bootstrap';
+@import './masthead.css';
 
 
 .header{
-    height:40vh;
+    height:20vh;
     background-color:black;
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
     background-size: cover;
     background-position: center;
 }
+
 
 h1,h2{
     color:yellow;
@@ -22,10 +24,13 @@ h1,h2{
 }
 
 
+
+
 body {
     background-color: black;
-    color: white; /* così il testo si vede */
+    color: white;
 }
+
 
 
 .trainee-card {
@@ -44,4 +49,5 @@ body {
     height: 200px;
     object-fit: cover;
 }
+
 
